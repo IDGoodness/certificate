@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/ginsti.png";
-import * as XLSX from "xlsx";
+// import * as XLSX from "xlsx";
 
 
 
@@ -11,58 +11,84 @@ import * as XLSX from "xlsx";
 
 const Five = () => {
     const [formData, setFormData] = useState({
-    name: "",
+        name: "",
+        email: "",
     });
 
     const navigate = useNavigate();
 
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        const { name, value } = e.target;
+        const { name, value, } = e.target;
         setFormData({ ...formData, [name]: value });
     };
 
-    const normalizeName = (name: string): string => {
-        return name
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "") // remove accents
-            .replace(/\s+/g, " ") // collapse spaces
-            .trim()
-            .toLowerCase();
-    };
+    const userEmail = [
+        "adewuyigoodness1@gmail.com",
+        "adewuyigoodness2@gmail.com",
+        "adewuyigoodness3@gmail.com",
+        "adewuyigoodness4@gmail.com",
+        "adewuyigoodness5@gmail.com",
+    ]
 
-    const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
 
-    const inputName = normalizeName(formData.name);
+    const handleSubmit = (event: React.FormEvent) => {
+        event?.preventDefault();
 
-    try {
-        const res = await fetch("/students.xlsx"); // File should be in public/
-        const data = await res.arrayBuffer();
+        const inputEmail = formData.email;
 
-        const workbook = XLSX.read(data, { type: "array" });
-        const sheet = workbook.Sheets[workbook.SheetNames[0]];
-        const rawData = XLSX.utils.sheet_to_json(sheet, { header: 1 }) as string[][];
-
-        // Flatten the 2D array and normalize all names
-        const validNames = rawData
-        .flat()
-        .filter(Boolean) // Remove empty rows
-        .map(normalizeName);
-
-        if (validNames.includes(inputName)) {
-        Object.keys(formData).forEach((key) => {
-            localStorage.setItem(key, formData[key as keyof typeof formData] as string);
-        });
-        navigate("/course5");
+        // Check if the email is in the list
+        if (userEmail.includes(inputEmail)) {
+            Object.keys(formData).forEach((key) => {
+                localStorage.setItem(key, formData[key as keyof typeof formData] as string);
+            });
+            navigate("/course5");
         } else {
-        navigate("/notallowed");
+            navigate("/notallowed");
         }
-    } catch (error) {
-        console.error("Error parsing Excel:", error);
-        alert("Verification failed. Please try again or contact support.");
     }
-    };
+
+    // const normalizeName = (name: string): string => {
+    //     return name
+    //         .normalize("NFD")
+    //         .replace(/[\u0300-\u036f]/g, "") // remove accents
+    //         .replace(/\s+/g, " ") // collapse spaces
+    //         .trim()
+    //         .toLowerCase();
+    // };
+
+    // const handleSubmit = async (event: React.FormEvent) => {
+    // event.preventDefault();
+
+    // const inputName = normalizeName(formData.name);
+
+    // try {
+    //     const res = await fetch("/students.xlsx"); // File should be in public/
+    //     const data = await res.arrayBuffer();
+
+    //     const workbook = XLSX.read(data, { type: "array" });
+    //     const sheet = workbook.Sheets[workbook.SheetNames[0]];
+    //     const rawData = XLSX.utils.sheet_to_json(sheet, { header: 1 }) as string[][];
+
+    //     // Flatten the 2D array and normalize all names
+    //     const validNames = rawData
+    //     .flat()
+    //     .filter(Boolean) // Remove empty rows
+    //     .map(normalizeName);
+
+    //     if (validNames.includes(inputName)) {
+    //     Object.keys(formData).forEach((key) => {
+    //         localStorage.setItem(key, formData[key as keyof typeof formData] as string);
+    //     });
+    //     navigate("/course5");
+    //     } else {
+    //     navigate("/notallowed");
+    //     }
+    // } catch (error) {
+    //     console.error("Error parsing Excel:", error);
+    //     alert("Verification failed. Please try again or contact support.");
+    // }
+    // };
 
     return (
         <>
@@ -76,7 +102,10 @@ const Five = () => {
                 <h3 className="text-sm sm:text-xs text-center italic">
                     Enter your name below <br /> to generate your certificate.
                 </h3>
-                <div className="py-5">
+                <div className="pt-5" >
+                    <input type="text" placeholder="Enter your email address" onChange={handleChange} className="w-full rounded-xl p-3 pl-5 outline-1 hover:outline-purple-800 " name="email" required value={formData.email} />
+                </div>
+                <div className="py-2">
                     <input
                     type="text"
                     id="name"
