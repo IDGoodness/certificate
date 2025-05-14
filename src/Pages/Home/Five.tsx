@@ -75,7 +75,7 @@ const Five = () => {
         "eclecticbilalashraf@gmail.com",
         "chukumah.xavier@gmail.com",
         "ilorimuideen0000@gmail.com",
-        "thatgenomeboyx@gmail.com",
+        // "thatgenomeboyx@gmail.com",
     ];
 
     const handleSubmit = (event: React.FormEvent) => {
