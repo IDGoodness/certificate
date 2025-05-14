@@ -8,6 +8,7 @@ const Five = () => {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
+        course: "",
     });
 
     const [isLoading, setIsLoading] = useState(false); // Loading state
@@ -24,27 +25,75 @@ const Five = () => {
         "adewuyigoodness3@gmail.com",
         "adewuyigoodness4@gmail.com",
         "adewuyigoodness5@gmail.com",
+        "chunga.eric@gmail.com",
+        "emailhafsaijaz@gmail.com",
+        "mrhushenge@gmail.com",
+        "kaykay4him@googlemail.com",
+        "aninzechidera7@gmail.com",
+        "musabashibawa@gmail.com",
+        "sam.boboye@gmail.com",
+        "aninzechidera7@gmail.com",
+        "musabashibawa@gmail.com",
+        "sam.boboye@gmail.com",
+        "oluboyoadeola274@gmail.com",
+        "pela4381@gmail.com",
+        "lindaagbugba@gmail.com",
+        "chidiebereajugwo@gmail.com",
+        "morayomo410@gmail.com",
+        "chimezie.nzoputam@gmail.com",
+        "ibrahimh20h23@gmail.com",
+        "ghazalabioinfo@gmail.com",
+        "kardous_ines@yahoo.com",
+        "bobmanuelosuji@gmail.com",
+        "mawada_abdalla88@hotmail.com",
+        "saraspine@gmail.com",
+        "olayemifadekogbe@gmail.com",
+        "pazumini@gmail.com",
+        "princestephenolubunmi@gmail.com",
+        "bobmanuelosuji@gmail.com",
+        "oladipouthman1@gmail.com",
+        "hsupo1996@gmail.com",
+        "bintajjjallow@gmail.com",
+        "ozzychukwunta7@gmail.com",
+        "mickuye13@gmail.com",
+        "vuxarapatrice@gmail.com",
+        "nitujannatulnaima@gmail.com",
+        "stuartngereza5@gmail.com",
+        "soukainatesnimbenamara@gmail.com",
+        "barbaradanso93@gmail.com",
+        "rmprah@gmail.com",
+        "fatemah.it@gmail.com",
+        "mahmushtaq@gmail.com",
+        "olorunsolaezek@gmail.com",
+        "princestephenolubunmi@gmail.com",
+        "olawuyivictor06@gmail.com",
+        "elias.k.meziani@gmail.com",
+        "selbyjoey73@gmail.com",
+        "rmprah@gmail.com",
+        "carlo.dg.md@gmail.com",
+        "ofuadarhochristopher@gmail.com",
+        "eclecticbilalashraf@gmail.com",
     ];
 
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
-        setIsLoading(true); // Start loading animation
+        setIsLoading(true); 
 
-        const inputEmail = formData.email;
+        Object.keys(formData).forEach((key) => {
+            localStorage.setItem(key, formData[key as keyof typeof formData] as string);
+        });
+
+        const inputEmail = formData.email.toLocaleLowerCase();
 
         setTimeout(() => {
-            // Simulate a delay for the loading animation
             if (userEmail.includes(inputEmail)) {
-                // Object.keys(formData).forEach((key) => {
-                //     localStorage.setItem(key, formData[key as keyof typeof formData] as string);
-                // });
                 navigate("/course5");
             } else {
                 // alert("Email not allowed. Please contact support.");
                 navigate("/notallowed");
             }
-            setIsLoading(false); // Stop loading animation
-        }, 2000); // Adjust the delay as needed
+            setIsLoading(false);
+        }, 2000);
     };
 
     return (
@@ -68,9 +117,9 @@ const Five = () => {
                                     <input
                                         type="text"
                                         placeholder="Enter your email address"
-                                        onChange={handleChange}
                                         className="w-full rounded-xl p-3 pl-5 outline-1 hover:outline-purple-800"
                                         name="email"
+                                        onChange={handleChange}
                                         required
                                         value={formData.email}
                                     />
@@ -80,12 +129,23 @@ const Five = () => {
                                         type="text"
                                         id="name"
                                         value={formData.name}
-                                        onChange={handleChange}
                                         name="name"
+                                        onChange={handleChange}
                                         placeholder="Name"
-                                        required
                                         className="w-full rounded-xl p-3 pl-5 outline-1 hover:outline-purple-800"
                                     />
+                                </div>
+                                <div className="pb-5" >
+                                    <select name="course" id="course" value={formData.course} onChange={handleChange} className="w-full rounded-xl p-3 pl-5 outline-1 appearance-none hover:outline-purple-800 transition-colors duration-200 ">
+                                        <option value="" disabled>Course</option>
+                                        <option value="Infectious Diseases">Infectious Diseases</option>
+                                        <option value="Cancer Genomics">Cancer Genomics</option>
+                                        <option value="Anti Fungi">Anti Fungi</option>
+                                        <option value="Anti Viral">Anti Viral</option>
+                                        <option value="Anti Cancer">Anti Cancer</option>
+                                        <option value="Anti Bacteria">Anti Bacteria</option>
+                                        <option value="Anti Malaria">Anti Malaria</option>
+                                    </select>
                                 </div>
                             </div>
                             <button

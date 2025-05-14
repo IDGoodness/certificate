@@ -3,7 +3,10 @@ import logo from '../../assets/ginsti.png';
 import sign1 from '../../assets/sign1.png';
 import sign2 from '../../assets/signInsti.png';
 import award from '../../assets/award.png';
-import award1 from '../../assets/purpleribbon.png';
+import usa from "../../assets/usa.png";
+import nig from "../../assets/nig.png";
+import barcode from '../../assets/barcode.png';
+// import award1 from '../../assets/purpleribbon.png';
 import { toPng } from 'html-to-image';
 import watermark from '../../assets/watermark.jpg';
 
@@ -29,12 +32,15 @@ const Course5 = () => {
 
     const [formData, setFormData] = useState({
         name: '',
+        course: "",
     });
 
     useEffect(() => {
         const storedName = localStorage.getItem('name');
+        const storedCourse = localStorage.getItem('course');
         setFormData({
         name: storedName || '',
+        course: storedCourse || '',
         });
     }, []);
 
@@ -46,79 +52,129 @@ const Course5 = () => {
                 className="flex flex-col justify-center items-center bg-white relative"
                 >
                     <img src={watermark} alt="genes" className='absolute w-[1000px] -mt-52 h-[800px] opacity-30 z-0 ' />
-                    <div className="relative w-[1000px] h-[600px] border-[20px] m-10 border-purple-500 flex">
-                        <div className="flex flex-col mx-auto">
-                            <div className="flex text-center mx-auto pl-20">
-                                <p className="mr-2">
-                                    <img src={logo} alt="logo" className="w-[80px]" />
-                                </p>
-                                <p className="w-[1px] h-[50px] bg-purple-600 mt-4"></p>
-                                <p className="mt-5 pr-16 font-bold text-xs w-[200px]">
-                                Genomac Institute Inc.
-                                <p className="-ml-2">| USA Incorporated</p>
-                                </p>
+                    <div className="relative w-[1000px] h-[600px] flex">
+                        <div className="bg-gradient-to-b from-pink-400 via-purple-900 to-purple-900 w-[200px] h-[600px] ">
+                <div className="flex ">
+                    <div className="mx-auto">
+                    <img src={logo} alt="logo2" className="w-28" />
+                    </div>
+                </div>
+                <div className="-mt-2 ">
+                    <p className="text-white text-center text-[13px] ">
+                    GENOMAC INSTITUTE INC
+                    </p>
+                    <p className="text-white text-center font-thin text-[8px]  ">
+                    ...discovering new things, improving life
+                    </p>
+                </div>
+
+                <div className="text-white text-[10px] m-2 p-2 bg-purple-950 rounded-xl text-left mt-[100px] ">
+                    <p>
+                    This certificate is issued by Genomac Institute Inc. a
+                    registered research institution in the United States of
+                    America.
+                    </p>
+                    <p>Registration Number : 3844801</p>
+                </div>
+
+                <div className="text-[10px] m-2 p-2 bg-purple-950 rounded-xl text-left ">
+                    <div className="bg-white w-fit p-1 m-2 mx-auto flex items-center font-medium">
+                    <span className="-ml-5 mr-1">
+                        <img src={usa} alt="usa" className="w-6" />
+                    </span>
+                    USA Office Address
+                    </div>
+                    <p className="text-white">
+                    The corporation&apos;s registered office in the state of
+                    Delaware is located at 16192 coastal highway, lewes, Delware
+                    19958, county of Sussex
+                    </p>
+                </div>
+
+                <div className="text-[10px] m-2 p-2 bg-purple-950 rounded-xl text-left ">
+                    <div className="bg-white w-fit p-1 m-2 flex items-center mx-auto font-medium ">
+                    <span className="-ml-5 mr-1">
+                        <img src={nig} alt="nig" className="w-6" />
+                    </span>
+                    NIG Office Address
+                    </div>
+                    <p className="text-white">
+                    Genomac Holdings, beside Alari Akata Filling Station, Unde-G,
+                    Ogbomoso, Oyo State, Nigeria.
+                    </p>
+                </div>
+                        </div>
+
+                        <div className="w-[800px]">
+                        <div className="bg-white w-[800px] lg:h-[600px] lg:ml-4 lg:p-10">
+                            <div className="p-5 bg-purple-900 text-white text-4xl text-center tracking-widest uppercase ">
+                            CERTIFICATE OF ParticipATION
                             </div>
 
-                            <div className="text-center mx-auto">
-                                <p className="uppercase font-semibold text-3xl">
-                                certificate of participation
-                                </p>
-                                <p className="text-center italic font-bold">
-                                this certificate is presented to:
-                                </p>
+                            <div className="font-base text-center mt-5 italic">
+                            This Certificate is Presented to:
                             </div>
 
-                            <div className="text-center mx-auto pt-5 pb-10 w-[1000px] h-[200px] mt-5">
-                                <p className="text-2xl font-semibold border-b-2 mx-[300px] pb-2 mb-1 border-purple-800 border-dashed">
-                                {formData.name}
-                                </p>
-                                <p className="mx-28 pt-5 text-md">
-                                For successfully participating in and completing the workshop on Comparative Genomics which covered phylogenomic analyses and evolutionary insights, genome assembly and annotation, and case studies comparing genomes across species or strains
-                                </p>
-                                <p className="font-bold">17th March - 15th APRIL 2025</p>
+                            <div
+                            id="name"
+                            className=" capitalize border-b-4 border-purple-900 pb-1 text-center text-purple-900 mx-[70px] mt-[50px] text-4xl"
+                            >
+                            {formData.name}
                             </div>
 
-                            <div className="flex justify-between mx-32">
-                                <div className="">
-                                <p className="border-b-2 border-dashed border-purple-800 w-[200px]">
-                                    <img
+                            <p className=" capitalize py-4 pr-1 text-center font-base ">
+                            For Successfully Participating in the Research Internship on
+                            the application of Genomics and Bioinformatics Techniques in{" "}
+                            <span className="font-bold"> {formData.course} </span>{" "}
+                            Organized by Genomac Institute Inc.
+                            </p>
+
+                            <p className="font-bold mx-auto text-center w-[300px] uppercase ">
+                            december 2024 - march 2025
+                            </p>
+
+                            <div className="flex justify-between mt-5 ">
+                            <div className="w-[200px] -ml-[50px] -mr-[300px] mt-[40px] ">
+                                <img src={barcode} alt="" />
+                            </div>
+
+                            <div className=" ">
+                                <p className="border-b-2 border-purple-800 w-[200px] ">
+                                <img
                                     src={sign1}
                                     alt="signature"
-                                    className="w-[200px] h-[150px] -mb-10"
-                                    />
+                                    className="w-[200px] h-[150px] -mb-10 "
+                                />
                                 </p>
                                 <p className="text-base font-semibold">
-                                    Oluwaseyi Abraham Olawale
+                                Oluwaseyi Abraham Olawale
                                 </p>
                                 <p className="text-xs font-medium">
-                                    Founder & CEO of Genomac Holdings.
+                                Founder & CEO of Genomac Holdings.
                                 </p>
-                                </div>
+                            </div>
 
-                                <div className="w-[400px] h-auto -mt-[30px] -ml-[400px] -mr-[320px] z-10">
+                            <div className="w-[400px] h-auto -mt-[30px] -ml-[400px] -mr-[320px]">
                                 <img src={award} alt="award" />
-                                </div>
+                            </div>
 
-                                <div className="mt-2">
-                                <p className="border-b-2 border-dashed border-purple-800 w-52">
-                                    <img
+                            <div className="mt-2 ">
+                                <p className="border-b-2 border-purple-800 w-52 ">
+                                <img
                                     src={sign2}
                                     alt="signature"
-                                    className="w-[200px] h-[150px] -mb-12"
-                                    />
+                                    className="w-[200px] h-[150px] -mb-12 "
+                                />
                                 </p>
                                 <p className="text-base font-semibold">
-                                    Oluwaseun Oyekunle Agboola
+                                Oluwaseun Oyekunle Agboola
                                 </p>
                                 <p className="text-xs font-medium">
-                                    Director, Genomac Institute INC.
+                                Director, Genomac Institute INC.
                                 </p>
-                                </div>
                             </div>
-
-                            <div className="w-[150px] absolute top-8 left-14">
-                                <img src={award1} alt="award" />
                             </div>
+                        </div>
                         </div>
                     </div>
                 </div>
