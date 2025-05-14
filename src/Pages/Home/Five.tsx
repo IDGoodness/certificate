@@ -93,6 +93,7 @@ const Five = () => {
         "chinonsojolz@gmail.com",
         "Ochayisunday@gmail.com",
         "libesaseveni@gmail.com",
+        "ranerugved@gmail.com",
         // "thatgenomeboyx@gmail.com",
     ];
 
