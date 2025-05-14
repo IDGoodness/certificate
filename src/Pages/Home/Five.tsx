@@ -14,7 +14,7 @@ const Five = () => {
     const [isLoading, setIsLoading] = useState(false); // Loading state
     const navigate = useNavigate();
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>): void => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };

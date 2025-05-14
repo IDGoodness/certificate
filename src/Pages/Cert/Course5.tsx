@@ -51,7 +51,7 @@ const Course5 = () => {
                 ref={ref}
                 className="flex flex-col justify-center items-center bg-white relative"
                 >
-                    <img src={watermark} alt="genes" className='absolute w-[1000px] -mt-52 h-[800px] opacity-30 z-0 ' />
+                    <img src={watermark} alt="genes" className='absolute w-[1000px] -mt-52 h-[800px] opacity-10 z-10 ' />
                     <div className="relative w-[1000px] h-[600px] flex">
                         <div className="bg-gradient-to-b from-pink-400 via-purple-900 to-purple-900 w-[200px] h-[600px] ">
                 <div className="flex ">
@@ -130,7 +130,7 @@ const Course5 = () => {
                             </p>
 
                             <p className="font-bold mx-auto text-center w-[300px] uppercase ">
-                            december 2024 - march 2025
+                                January - April 2025
                             </p>
 
                             <div className="flex justify-between mt-5 ">
