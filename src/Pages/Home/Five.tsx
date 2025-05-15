@@ -171,11 +171,11 @@ const Five = () => {
                                         <option value="" disabled>Course</option>
                                         <option value="Infectious Diseases">Infectious Diseases</option>
                                         <option value="Cancer Genomics">Cancer Genomics</option>
-                                        <option value="Anti Fungi">Anti Fungi</option>
-                                        <option value="Anti Viral">Anti Viral</option>
-                                        <option value="Anti Cancer">Anti Cancer</option>
-                                        <option value="Anti Bacteria">Anti Bacteria</option>
-                                        <option value="Anti Malaria">Anti Malaria</option>
+                                        <option value="Anti Fungi R&D">Anti Fungi R&D</option>
+                                        <option value="Anti Viral R&D">Anti Viral R&D</option>
+                                        <option value="Anti Cancer R&D">Anti Cancer R&D</option>
+                                        <option value="Anti Bacteria R&D">Anti Bacteria R&D</option>
+                                        <option value="Anti Malaria R&D">Anti Malaria R&D</option>
                                     </select>
                                 </div>
                             </div>
