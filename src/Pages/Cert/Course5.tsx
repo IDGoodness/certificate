@@ -5,7 +5,7 @@ import sign2 from '../../assets/signInsti.png';
 import award from '../../assets/award.png';
 import usa from "../../assets/usa.png";
 import nig from "../../assets/nig.png";
-import barcode from '../../assets/barcode.png';
+import barcode from '../../assets/barcode.jpg';
 // import award1 from '../../assets/purpleribbon.png';
 import { toPng } from 'html-to-image';
 import watermark from '../../assets/watermark.jpg';
@@ -134,45 +134,45 @@ const Course5 = () => {
                             </p>
 
                             <div className="flex justify-between mt-5 ">
-                            <div className="w-[200px] -ml-[50px] -mr-[300px] mt-[40px] ">
-                                <img src={barcode} alt="" />
-                            </div>
+                                <div className="w-[80px] -mr-[270px] mt-[70px] ">
+                                    <img src={barcode} alt="" />
+                                </div>
 
-                            <div className=" ">
-                                <p className="border-b-2 border-purple-800 w-[200px] ">
-                                <img
-                                    src={sign1}
-                                    alt="signature"
-                                    className="w-[200px] h-[150px] -mb-10 "
-                                />
-                                </p>
-                                <p className="text-base font-semibold">
-                                Oluwaseyi Abraham Olawale
-                                </p>
-                                <p className="text-xs font-medium">
-                                Founder & CEO of Genomac Holdings.
-                                </p>
-                            </div>
+                                <div className="ml-[10px] ">
+                                    <p className="border-b-2 border-purple-800 w-[200px] ">
+                                    <img
+                                        src={sign1}
+                                        alt="signature"
+                                        className="w-[200px] h-[150px] -mb-10 "
+                                    />
+                                    </p>
+                                    <p className="text-base font-semibold">
+                                    Oluwaseyi Abraham Olawale
+                                    </p>
+                                    <p className="text-xs font-medium">
+                                    Founder & CEO of Genomac Holdings.
+                                    </p>
+                                </div>
 
-                            <div className="w-[400px] h-auto -mt-[30px] -ml-[400px] -mr-[320px]">
-                                <img src={award} alt="award" />
-                            </div>
+                                <div className="w-[400px] h-auto -mt-[30px] -ml-[400px] -mr-[320px]">
+                                    <img src={award} alt="award" />
+                                </div>
 
-                            <div className="mt-2 ">
-                                <p className="border-b-2 border-purple-800 w-52 ">
-                                <img
-                                    src={sign2}
-                                    alt="signature"
-                                    className="w-[200px] h-[150px] -mb-12 "
-                                />
-                                </p>
-                                <p className="text-base font-semibold">
-                                Oluwaseun Oyekunle Agboola
-                                </p>
-                                <p className="text-xs font-medium">
-                                Director, Genomac Institute INC.
-                                </p>
-                            </div>
+                                <div className="mt-2 ">
+                                    <p className="border-b-2 border-purple-800 w-52 ">
+                                    <img
+                                        src={sign2}
+                                        alt="signature"
+                                        className="w-[200px] h-[150px] -mb-12 "
+                                    />
+                                    </p>
+                                    <p className="text-base font-semibold">
+                                    Oluwaseun Oyekunle Agboola
+                                    </p>
+                                    <p className="text-xs font-medium">
+                                    Director, Genomac Institute INC.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                         </div>
