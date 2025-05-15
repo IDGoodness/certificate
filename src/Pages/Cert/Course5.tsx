@@ -124,8 +124,8 @@ const Course5 = () => {
 
                             <p className=" capitalize py-4 pr-1 text-center font-base ">
                             For Successfully Participating in the Research Internship on
-                            the application of Genomics and Bioinformatics Techniques in{" "}
-                            <span className="font-bold"> {formData.course} </span>{" "}
+                            the application of Genomics and Bioinformatics Techniques in
+                            <span className="font-bold"> {formData.course} </span>
                             Organized by Genomac Institute Inc.
                             </p>
 
