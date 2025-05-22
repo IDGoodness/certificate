@@ -2,14 +2,13 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/ginsti.png";
 import "./Five.css";
+import { useFormStore } from "../../zustand/formStore";
+
 
 
 const Five = () => {
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        course: "",
-    });
+
+    const { formData, setFormData, resetForm } = useFormStore();
 
     const [isLoading, setIsLoading] = useState(false); // Loading state
     const navigate = useNavigate();
@@ -137,6 +136,8 @@ const Five = () => {
             }
             setIsLoading(false);
         }, 2000);
+
+        resetForm();
     };
 
     return (
