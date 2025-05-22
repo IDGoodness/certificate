@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/ginsti.png";
 import "./Five.css";
@@ -8,9 +7,8 @@ import { useFormStore } from "../../zustand/formStore";
 
 const Five = () => {
 
-    const { formData, setFormData, resetForm } = useFormStore();
+    const { formData, setFormData, resetForm, setLoading, isLoading } = useFormStore();
 
-    const [isLoading, setIsLoading] = useState(false); // Loading state
     const navigate = useNavigate();
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>): void => {
@@ -119,22 +117,23 @@ const Five = () => {
 
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
-        setIsLoading(true); 
+        setLoading(true); 
 
         Object.keys(formData).forEach((key) => {
             localStorage.setItem(key, formData[key as keyof typeof formData] as string);
         });
 
         const inputEmail = formData.email.toLocaleLowerCase();
+        const normalizedEmails = userEmail.map((email) => email.toLocaleLowerCase());
 
         setTimeout(() => {
-            if (userEmail.includes(inputEmail)) {
+            if (normalizedEmails.includes(inputEmail)) {
                 navigate("/course5");
             } else {
                 // alert("Email not allowed. Please contact support.");
                 navigate("/notallowed");
             }
-            setIsLoading(false);
+            setLoading(false);
         }, 2000);
 
         resetForm();
