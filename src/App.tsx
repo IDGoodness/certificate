@@ -11,6 +11,8 @@ import CourseTwo from './Pages/Cert/Course2';
 import CourseThree from './Pages/Cert/Course3';
 import CourseFour from './Pages/Cert/Course4';
 import Course5 from './Pages/Cert/Course5';
+import AddEmail from './Pages/Admin/AddEmail';
+
 
 function App() {
 
@@ -29,6 +31,7 @@ function App() {
           <Route path='/Five' element={<Five />} />
           <Route path='/course5' element={<Course5 />} />
           <Route path='/NotAllowed' element={<NotAllowed />} />
+          <Route path='/addEmail' element={<AddEmail />} />
         </Routes>
       </BrowserRouter>
     </>

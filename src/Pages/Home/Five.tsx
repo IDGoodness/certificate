@@ -2,12 +2,22 @@ import { useNavigate } from "react-router-dom";
 import logo from "../../assets/ginsti.png";
 import "./Five.css";
 import { useFormStore } from "../../zustand/formStore";
+import { allowedEmails } from "../../../allowedEmails";
+// import { useEffect } from "react";
 
 
 
 const Five = () => {
 
     const { formData, setFormData, resetForm, setLoading, isLoading } = useFormStore();
+    // const [allowedEmails, setAllowedEmails] = useState<string[]>([]);
+    // useEffect(() => {
+    //     // Fetch allowed emails from backend
+    //     fetch("http://localhost:4000/api/allowed-emails")
+    //         .then(res => res.json())
+    //         .then(data => setAllowedEmails(data))
+    //         .catch(() => setAllowedEmails([]));
+    // }, []);
 
     const navigate = useNavigate();
 
@@ -15,105 +25,6 @@ const Five = () => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
-
-    const userEmail = [
-        "adewuyigoodness1@gmail.com",
-        "adewuyigoodness2@gmail.com",
-        "adewuyigoodness3@gmail.com",
-        "adewuyigoodness4@gmail.com",
-        "adewuyigoodness5@gmail.com",
-        "chunga.eric@gmail.com",
-        "emailhafsaijaz@gmail.com",
-        "mrhushenge@gmail.com",
-        "kaykay4him@googlemail.com",
-        "aninzechidera7@gmail.com",
-        "musabashibawa@gmail.com",
-        "sam.boboye@gmail.com",
-        "aninzechidera7@gmail.com",
-        "musabashibawa@gmail.com",
-        "sam.boboye@gmail.com",
-        "oluboyoadeola274@gmail.com",
-        "pela4381@gmail.com",
-        "lindaagbugba@gmail.com",
-        "chidiebereajugwo@gmail.com",
-        "morayomo410@gmail.com",
-        "chimezie.nzoputam@gmail.com",
-        "ibrahimh20h23@gmail.com",
-        "ghazalabioinfo@gmail.com",
-        "kardous_ines@yahoo.com",
-        "bobmanuelosuji@gmail.com",
-        "mawada_abdalla88@hotmail.com",
-        "saraspine@gmail.com",
-        "olayemifadekogbe@gmail.com",
-        "pazumini@gmail.com",
-        "princestephenolubunmi@gmail.com",
-        "bobmanuelosuji@gmail.com",
-        "oladipouthman1@gmail.com",
-        "hsupo1996@gmail.com",
-        "bintajjjallow@gmail.com",
-        "ozzychukwunta7@gmail.com",
-        "mickuye13@gmail.com",
-        "vuxarapatrice@gmail.com",
-        "nitujannatulnaima@gmail.com",
-        "stuartngereza5@gmail.com",
-        "soukainatesnimbenamara@gmail.com",
-        "barbaradanso93@gmail.com",
-        "rmprah@gmail.com",
-        "fatemah.it@gmail.com",
-        "mahmushtaq@gmail.com",
-        "olorunsolaezek@gmail.com",
-        "princestephenolubunmi@gmail.com",
-        "olawuyivictor06@gmail.com",
-        "elias.k.meziani@gmail.com",
-        "selbyjoey73@gmail.com",
-        "rmprah@gmail.com",
-        "carlo.dg.md@gmail.com",
-        "ofuadarhochristopher@gmail.com",
-        "eclecticbilalashraf@gmail.com",
-        "chukumah.xavier@gmail.com",
-        "ilorimuideen0000@gmail.com",
-        "ghendre@smail.uni-koeln.de",
-        "sayalihingane7@gmail.com",
-        "zkhadijah9@gmail.com",
-        "onwukweuchechukwu1@gmail.com",
-        "tobigiwa89@gmail.com",
-        "hridayastha@gmail.com",
-        "koderkris@gmail.com",
-        "lanrelekesophie@gmail.com",
-        "edemaeddy@gmail.com",
-        "ilomuanyaifeanyi@gmail.com",
-        "xainabbb09@gmail.com",
-        "zkhadijah9@gmail.com",
-        "lindaagbugba@gmail.com",
-        "zhrahim9@gmail.com",
-        "ldfjoseph@gmail.com",
-        "chinonsojolz@gmail.com",
-        "Ochayisunday@gmail.com",
-        "libesaseveni@gmail.com",
-        "ranerugved@gmail.com",
-        "tinuoladele@gmail.com",
-        "kaykay4him@yahoo.com",
-        "preciousidubor@gmail.com",
-        "ahmadhabib8340@gmail.com",
-        "ismailshittuolamilekan@gmail.com",
-        "yosmanu6981@gmail.com",
-        "zumbeng7@gmail.com",
-        "adeebapatel11@gmail.com",
-        "ochayisunday@gmail.com",
-        "ajitharathi1999@gmail.com",
-        "walagasim94@gmail.com",
-        "jutt141azmat@gmail.com",
-        "philile08slu@gmail.com",
-        "delightokonkwo24@gmail.com",
-        "asmtuha.bge@gmail.com",
-        "lindaagbugba@gmail.com",
-        "onyekaifeanyipeter@gmail.com",
-        "emmanuelogana1x@gmail.com",
-        "delightokonkwo24@gmail.com",
-        "amakanwodo123@gmail.com",
-        "salamiwahley@gmail.com",
-        // "thatgenomeboyx@gmail.com",
-    ];
 
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
@@ -124,7 +35,7 @@ const Five = () => {
         });
 
         const inputEmail = formData.email.toLocaleLowerCase();
-        const normalizedEmails = userEmail.map((email) => email.toLocaleLowerCase());
+        const normalizedEmails = allowedEmails.map((email) => email.toLocaleLowerCase());
 
         setTimeout(() => {
             if (normalizedEmails.includes(inputEmail)) {
@@ -160,7 +71,7 @@ const Five = () => {
                                     <input
                                         type="text"
                                         placeholder="Enter your email address"
-                                        className="w-full rounded-xl p-3 pl-5 outline-1 hover:outline-purple-800"
+                                        className="border border-gray-300 w-full rounded-xl p-3 pl-5 focus:ring-purple-800 "
                                         name="email"
                                         onChange={handleChange}
                                         required
@@ -175,11 +86,11 @@ const Five = () => {
                                         name="name"
                                         onChange={handleChange}
                                         placeholder="Name"
-                                        className="w-full rounded-xl p-3 pl-5 outline-1 hover:outline-purple-800"
+                                        className="border border-gray-300 w-full rounded-xl p-3 pl-5 focus:ring-purple-800 "
                                     />
                                 </div>
                                 <div className="pb-5" >
-                                    <select name="course" id="course" value={formData.course} onChange={handleChange} className="w-full rounded-xl p-3 pl-5 outline-1 appearance-none hover:outline-purple-800 transition-colors duration-200 ">
+                                    <select name="course" id="course" value={formData.course} onChange={handleChange} className="border border-gray-300 w-full rounded-xl p-3 pl-5 focus:ring-purple-800 appearance-none transition-colors duration-200 ">
                                         <option value="" disabled>Course</option>
                                         <option value="Infectious Diseases">Infectious Diseases</option>
                                         <option value="Cancer Genomics">Cancer Genomics</option>
