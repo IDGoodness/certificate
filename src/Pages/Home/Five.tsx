@@ -2,24 +2,33 @@ import { useNavigate } from "react-router-dom";
 import logo from "../../assets/ginsti.png";
 import "./Five.css";
 import { useFormStore } from "../../zustand/formStore";
-import { allowedEmails } from "../../../allowedEmails";
-// import { useEffect } from "react";
+// import { allowedEmails } from "../../../allowedEmails";
+// const allowedEmailsTyped: string[] = allowedEmails as string[];
+import { useEffect, useState } from "react";
+import { supabase } from "../../supabaseClient";
 
 
 
 const Five = () => {
 
-    const { formData, setFormData, resetForm, setLoading, isLoading } = useFormStore();
-    // const [allowedEmails, setAllowedEmails] = useState<string[]>([]);
-    // useEffect(() => {
-    //     // Fetch allowed emails from backend
-    //     fetch("http://localhost:4000/api/allowed-emails")
-    //         .then(res => res.json())
-    //         .then(data => setAllowedEmails(data))
-    //         .catch(() => setAllowedEmails([]));
-    // }, []);
-
+    const { formData, setFormData, resetForm, setLoading, isLoading } = useFormStore();    
+    const [allowedEmailsTyped, setAllowedEmails] = useState<string[]>([]);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchEmails = async () => {
+            const { data, error } = await supabase
+                .from('allowed_emails')
+                .select('email');
+            if (data) {
+                setAllowedEmails(data.map((row: { email: string }) => row.email));
+            } else {
+                setAllowedEmails([]);
+                alert(error)
+            }
+        };
+        fetchEmails();
+    }, []);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>): void => {
         const { name, value } = e.target;
@@ -34,8 +43,8 @@ const Five = () => {
             localStorage.setItem(key, formData[key as keyof typeof formData] as string);
         });
 
+        const normalizedEmails = allowedEmailsTyped.map((email) => email.toLocaleLowerCase());
         const inputEmail = formData.email.toLocaleLowerCase();
-        const normalizedEmails = allowedEmails.map((email) => email.toLocaleLowerCase());
 
         setTimeout(() => {
             if (normalizedEmails.includes(inputEmail)) {
@@ -45,9 +54,8 @@ const Five = () => {
                 navigate("/notallowed");
             }
             setLoading(false);
+            resetForm();
         }, 2000);
-
-        resetForm();
     };
 
     return (

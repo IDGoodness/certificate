@@ -6,7 +6,13 @@ import pkg from "body-parser";
 // import path from "path";
 
 
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'dist')));
 
+// For any route not handled by your API, serve index.html
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
 
 const { json } = pkg;
 // import { json } from "body-parser";

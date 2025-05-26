@@ -1,5 +1,7 @@
 // import React from 'react'
 import logo from "../../assets/ginsti.png";
+import { supabase } from "../../supabaseClient";
+
 
 const AddEmail = () => {
     const handleSubmit = async (event: React.FormEvent) => {
@@ -9,17 +11,14 @@ const AddEmail = () => {
     
         if (email) {
             try {
-                const res = await fetch("http://localhost:4000/api/add-email", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ email }),
-                });
-                if (res.ok) {
+                const { error } = await supabase
+                    .from('allowed_emails')
+                    .insert([{ email }]);
+                if (!error) {
                     alert("Email added successfully!");
-                    emailInput.value = "";
+                    emailInput.value = ""; // Clear the input field
                 } else {
-                    const data = await res.json();
-                    alert(data.error || "Failed to add email.");
+                    alert(error.message || "Failed to add email.");
                 }
             } catch {
                 alert("Server error.");
