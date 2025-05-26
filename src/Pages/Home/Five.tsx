@@ -2,8 +2,6 @@ import { useNavigate } from "react-router-dom";
 import logo from "../../assets/ginsti.png";
 import "./Five.css";
 import { useFormStore } from "../../zustand/formStore";
-// import { allowedEmails } from "../../../allowedEmails";
-// const allowedEmailsTyped: string[] = allowedEmails as string[];
 import { useEffect, useState } from "react";
 import { supabase } from "../../supabaseClient";
 
