@@ -56,11 +56,11 @@ const Homepage = ({ navi }: HomepageProps) => {
                     <select name="course" id="course" value={formData.course} onChange={handleChange} className="border border-gray-300 w-full rounded-xl p-3 pl-5 focus:outline-none focus:border-purple-800 focus:ring-purple-800 appearance-none transition-colors duration-200 " aria-placeholder='Test' >
                         <option value="" disabled>Course</option>
                         <option value="Anti Cancer R&D">Anti Cancer R&D</option>
-                        <option value="Cancer">Cancer</option>
-                        <option value="Epidemiology">Epidemiology</option>
+                        <option value="Cancer Genomics">Cancer Genomics</option>
+                        <option value="Epidemiology and Health ">Epidemiology and Health</option>
                         <option value="Human Microbes">Human Microbes</option>
-                        <option value="Virulence">Virulence</option>
-                        <option value="Plant">Plant</option>
+                        <option value="Virulence Factor">Virulence Factor</option>
+                        <option value="Plant Genomics">Plant Genomics</option>
                         <option value="Infectious Diseases">Infectious Diseases</option>
                         <option value="Comparative Genomics">Comparative Genomics</option>
                     </select>
