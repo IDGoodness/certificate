@@ -46,7 +46,7 @@ const Five = () => {
 
         setTimeout(() => {
             if (normalizedEmails.includes(inputEmail)) {
-                navigate("/course5");
+                navigate("/coursefive");
             } else {
                 // alert("Email not allowed. Please contact support.");
                 navigate("/notallowed");

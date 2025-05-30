@@ -39,7 +39,7 @@ const Homepage = ({ navi }: HomepageProps) => {
             <h3 className="text-sm sm:text-xs text-center italic">
                 Enter your name below <br /> to generate your certificate.
             </h3>
-            <div className="py-5">
+            <div className="pt-5 pb-2">
                 <input
                 type="text"
                 id="name"
@@ -48,9 +48,24 @@ const Homepage = ({ navi }: HomepageProps) => {
                 name="name"
                 placeholder="Name"
                 required
-                className="w-full rounded-xl p-3 pl-5 outline-1 hover:outline-purple-800"
+                className="border border-gray-300 w-full rounded-xl p-3 pl-5 focus:outline-none focus:border-purple-800 focus:ring-purple-800 hover:outline-purple-800"
                 />
             </div>
+            {navi === "/coursesix" && (
+                <div className="pb-5" >
+                    <select name="course" id="course" value={formData.course} onChange={handleChange} className="border border-gray-300 w-full rounded-xl p-3 pl-5 focus:outline-none focus:border-purple-800 focus:ring-purple-800 appearance-none transition-colors duration-200 " aria-placeholder='Test' >
+                        <option value="" disabled>Course</option>
+                        <option value="Anti Cancer R&D">Anti Cancer R&D</option>
+                        <option value="Cancer">Cancer</option>
+                        <option value="Epidemiology">Epidemiology</option>
+                        <option value="Human Microbes">Human Microbes</option>
+                        <option value="Virulence">Virulence</option>
+                        <option value="Plant">Plant</option>
+                        <option value="Infectious Diseases">Infectious Diseases</option>
+                        <option value="Comparative Genomics">Comparative Genomics</option>
+                    </select>
+                </div>
+            )}
             </div>
             <button
             type="submit"

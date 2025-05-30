@@ -12,6 +12,8 @@ import CourseThree from './Pages/Cert/Course3';
 import CourseFour from './Pages/Cert/Course4';
 import Course5 from './Pages/Cert/Course5';
 import AddEmail from './Pages/Admin/AddEmail';
+import Six from './Pages/Home/Six';
+import Course6 from './Pages/Cert/Course6';
 
 
 function App() {
@@ -29,7 +31,9 @@ function App() {
           <Route path='/CourseThree' element={<CourseThree />} />
           <Route path='/CourseFour' element={<CourseFour />} />
           <Route path='/Five' element={<Five />} />
-          <Route path='/course5' element={<Course5 />} />
+          <Route path='/coursefive' element={<Course5 />} />
+          <Route path='/Six' element={<Six />} />
+          <Route path='/coursesix' element={<Course6 />} />
           <Route path='/NotAllowed' element={<NotAllowed />} />
           <Route path='/addEmail' element={<AddEmail />} />
         </Routes>
