@@ -112,7 +112,7 @@ const Course6: React.FC = () => {
                             <img src={watermark} alt="genes" className='absolute w-[800px] h-[500px] opacity-20 z-0 ' />
                             <div className="bg-white w-[800px] lg:h-[600px] lg:ml-4 lg:p-10">
                                 <div className="p-5 bg-purple-900 text-white text-4xl text-center tracking-widest uppercase ">
-                                    CERTIFICATE OF Participation
+                                    CERTIFICATE OF Completion   
                                 </div>
 
                                 <div className="font-base text-center mt-5 italic">
@@ -127,7 +127,7 @@ const Course6: React.FC = () => {
                                 </div>
 
                                 <p className=" capitalize py-4 pr-1 text-center font-base ">
-                                    For Successfully Participating in the Research Internship on
+                                    For Successfully Completing the Research Internship on
                                     the application of Genomics and Bioinformatics Techniques in
                                     <span className="font-bold"> {formData.course} </span>
                                     Organized by Genomac Institute Inc.
