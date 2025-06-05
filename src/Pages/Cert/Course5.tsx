@@ -137,12 +137,12 @@ const Course5: React.FC = () => {
                                     January - April 2025
                                 </p>
 
-                                <div className="flex justify-between mt-5 ">
+                                <div className="flex justify-between mt-5 z-10">
                                     <div className="w-[80px] -mr-[270px] mt-[70px] ">
                                         <img src={barcode} alt="" />
                                     </div>
 
-                                    <div className="ml-[10px] ">
+                                    <div className="ml-[10px] z-10">
                                         <p className="border-b-2 border-purple-800 w-[200px] ">
                                             <img
                                                 src={sign1}
@@ -158,11 +158,11 @@ const Course5: React.FC = () => {
                                         </p>
                                     </div>
 
-                                    <div className="w-[400px] h-auto -mt-[30px] -ml-[400px] -mr-[320px]">
+                                    <div className="w-[400px] h-auto -mt-[30px] -ml-[400px] -mr-[320px] z-10">
                                         <img src={award} alt="award" />
                                     </div>
 
-                                    <div className="mt-2 ">
+                                    <div className="mt-2 z-10">
                                         <p className="border-b-2 border-purple-800 w-52 ">
                                             <img
                                                 src={sign2}
