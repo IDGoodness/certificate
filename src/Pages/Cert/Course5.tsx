@@ -102,7 +102,7 @@ const Course5: React.FC = () => {
                                     NIG Office Address
                                 </div>
                                 <p className="text-white">
-                                    Genomac Holdings, beside Alari Akata Filling Station, Unde-G,
+                                    Genomac Holdings, beside Alari Akata Filling Station, Under-G,
                                     Ogbomoso, Oyo State, Nigeria.
                                 </p>
                             </div>
