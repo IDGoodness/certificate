@@ -61,21 +61,25 @@ const Course1 = () => {
 
                             <div className="text-center mx-auto">
                                 <p className="uppercase font-semibold text-3xl">
-                                certificate of participation
+                                certificate of attendance
                                 </p>
                                 <p className="text-center italic font-bold">
-                                this certificate is presented to:
+                                this certificate is awarded to:
                                 </p>
                             </div>
 
                             <div className="text-center mx-auto pt-5 pb-10 w-[1000px] h-[200px] mt-5">
-                                <p className="text-3xl font-semibold border-b-2 mx-[300px] pb-2 mb-1 border-purple-800 border-dashed">
+                                <p className="text-3xl font-semibold border-b-2 mx-[200px] pb-2 mb-1 border-purple-800 border-dashed">
                                 {formData.name}
                                 </p>
-                                <p className="mx-28 pt-5 text-md">
-                                For successfully participating in and completing the workshop on WGS Metagenomics Analysis which covered practical metagenomic data analysis, taxonomic profiling, resistome analysis, functional analysis, and visualization of results.
+                                <p className="mx-28 pt-3 text-md">
+                                    For participating in webinar:
                                 </p>
-                                <p className="font-bold">17th March - 15th APRIL 2025</p>
+                                <p className='uppercase text-lg font-bold' >
+                                    democratizing genomics: making bioinformatics accessible worldwide
+                                </p>
+                                <p className='mx-28' >This is to certify the successful participation in the International Webinar Program organized by Genomac Institute Inc.</p>
+                                <p className="font-bold">20TH JUNE 2025</p>
                             </div>
 
                             <div className="flex justify-between mx-32">
