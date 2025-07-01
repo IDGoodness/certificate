@@ -134,7 +134,7 @@ const Course6: React.FC = () => {
                                 </p>
 
                                 <p className="font-bold mx-auto text-center w-[300px] uppercase ">
-                                    February - May 2025
+                                    April - June 2025
                                 </p>
 
                                 <div className="flex justify-between mt-5 z-10">
