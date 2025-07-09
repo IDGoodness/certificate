@@ -75,7 +75,7 @@ const Course2 = () => {
                                 <p className="mx-28 pt-5 text-md">
                                 For successfully completing the 4 weeks Viral Genomics Training and Mini Project Workshop which covered viral genome structures and the principles of viral genomics; use of biological databases for retrieving data; quality control, preprocessing and genome assembly using standard bioinformatics tools; variant calling and functional annotation of viral genomes; and visualization of genomics findings.
                                 </p>
-                                <p className="font-bold">10th JULY 2025</p>
+                                <p className="font-bold">awarded on 10th JULY 2025</p>
                             </div>
 
                             <div className="flex justify-between mx-32">
