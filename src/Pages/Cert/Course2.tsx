@@ -61,7 +61,7 @@ const Course2 = () => {
 
                             <div className="text-center mx-auto">
                                 <p className="uppercase font-semibold text-3xl">
-                                certificate of participation
+                                certificate of completion
                                 </p>
                                 <p className="text-center italic font-bold">
                                 this certificate is presented to:
@@ -73,9 +73,9 @@ const Course2 = () => {
                                 {formData.name}
                                 </p>
                                 <p className="mx-28 pt-5 text-md">
-                                For successfully participating in and completing the workshop on Genomics of Infectious Diseases (pathogenomics) which covered overview of pathogen genome evolution, phylogenetic analysis, resistome analysis, visualization and interpretation of results.
+                                For successfully completing the 4 weeks Viral Genomics Training and Mini Project Workshop which covered viral genome structures and the principles of viral genomics; use of biological databases for retrieving data; quality control, preprocessing and genome assembly using standard bioinformatics tools; variant calling and functional annotation of viral genomes; and visualization of genomics findings.
                                 </p>
-                                <p className="font-bold">17th March - 15th APRIL 2025</p>
+                                <p className="font-bold">10th JULY 2025</p>
                             </div>
 
                             <div className="flex justify-between mx-32">
