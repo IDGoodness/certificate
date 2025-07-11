@@ -73,13 +73,13 @@ const Course1 = () => {
                                 {formData.name}
                                 </p>
                                 <p className="mx-28 pt-3 text-md">
-                                    For participating in webinar:
+                                    For participation in the Short Course:
                                 </p>
                                 <p className='uppercase text-lg font-bold' >
-                                    democratizing genomics: making bioinformatics accessible worldwide
+                                    EXPLORE AI IN BIOINFORMATICS
                                 </p>
-                                <p className='mx-28' >This is to certify the successful participation in the International Webinar Program organized by Genomac Institute Inc.</p>
-                                <p className="font-bold">20TH JUNE 2025</p>
+                                <p className='mx-28' >This is to certify the successful participation in the Short Course organized by Genomac Institute Inc.</p>
+                                <p className="font-bold">11TH JULY 2025</p>
                             </div>
 
                             <div className="flex justify-between mx-32">
