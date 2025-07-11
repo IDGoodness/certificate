@@ -75,7 +75,7 @@ const Course1 = () => {
                                 <p className="mx-28 pt-3 text-md">
                                     For participation in the Short Course:
                                 </p>
-                                <p className='uppercase text-lg font-bold' >
+                                <p className='uppercase text-xl font-bold' >
                                     EXPLORE AI IN BIOINFORMATICS
                                 </p>
                                 <p className='mx-28' >This is to certify the successful participation in the Short Course organized by Genomac Institute Inc.</p>
