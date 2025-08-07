@@ -73,9 +73,9 @@ const Course3 = () => {
                                 {formData.name}
                                 </p>
                                 <p className="mx-28 pt-5 text-md">
-                                For successfully participating in and completing the workshop on Plant Genomics which covered overview of plant genomics, genome assembly and annotation, molecular characterization, visualization and interpretation of results.
+                                For successfully participating in the Fully Funded International Bootcamp on Research Writing in Bioinformatics Organized by Genomac Institute Inc.
                                 </p>
-                                <p className="font-bold">17th March - 15th APRIL 2025</p>
+                                <p className="font-bold">7th - 8th AUGUST 2025</p>
                             </div>
 
                             <div className="flex justify-between mx-32">
