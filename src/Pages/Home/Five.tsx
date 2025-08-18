@@ -1,59 +1,33 @@
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/ginsti.png";
+import { useState } from "react";
 import "./Five.css";
-import { useFormStore } from "../../zustand/formStore";
-import { useEffect, useState } from "react";
-import { supabase } from "../../supabaseClient";
+// import { useFormStore } from "../../zustand/formStore";
+// import { supabase } from "../../supabaseClient";
 
 
 
 const Five = () => {
 
-    const { formData, setFormData, resetForm, setLoading, isLoading } = useFormStore();    
-    const [allowedEmailsTyped, setAllowedEmails] = useState<string[]>([]);
+    const [formData, setFormData] = useState<{ [key: string]: string }>({
+        name: "",
+    });
+
+    const [isLoading] = useState(false);
+
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const fetchEmails = async () => {
-            const { data, error } = await supabase
-                .from('allowed_emails')
-                .select('email');
-            if (data) {
-                setAllowedEmails(data.map((row: { email: string }) => row.email));
-            } else {
-                setAllowedEmails([]);
-                alert(error)
-            }
-        };
-        fetchEmails();
-    }, []);
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>): void => {
+    const handleChange = (e: { target: { name: string; value: string } }) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = (event: React.FormEvent) => {
+    const handleSubmit = (event: { preventDefault: () => void }) => {
         event.preventDefault();
-        setLoading(true); 
-
         Object.keys(formData).forEach((key) => {
-            localStorage.setItem(key, formData[key as keyof typeof formData] as string);
+            localStorage.setItem(key, formData[key]);
         });
-
-        const normalizedEmails = allowedEmailsTyped.map((email) => email.toLocaleLowerCase());
-        const inputEmail = formData.email.toLocaleLowerCase();
-
-        setTimeout(() => {
-            if (normalizedEmails.includes(inputEmail)) {
-                navigate("/coursefive");
-            } else {
-                // alert("Email not allowed. Please contact support.");
-                navigate("/notallowed");
-            }
-            setLoading(false);
-            resetForm();
-        }, 2000);
+        navigate("/coursefive");
     };
 
     return (
@@ -73,17 +47,6 @@ const Five = () => {
                                 <h3 className="text-sm sm:text-xs text-center italic">
                                     Enter your name below <br /> to generate your certificate.
                                 </h3>
-                                <div className="pt-5">
-                                    <input
-                                        type="text"
-                                        placeholder="Enter your email address"
-                                        className="border border-gray-300 w-full rounded-xl p-3 pl-5 focus:outline-none focus:border-purple-800 focus:ring-purple-800 "
-                                        name="email"
-                                        onChange={handleChange}
-                                        required
-                                        value={formData.email}
-                                    />
-                                </div>
                                 <div className="py-2">
                                     <input
                                         type="text"
@@ -100,11 +63,9 @@ const Five = () => {
                                         <option value="" disabled>Course</option>
                                         <option value="Infectious Diseases">Infectious Diseases</option>
                                         <option value="Cancer Genomics">Cancer Genomics</option>
-                                        <option value="Anti Fungi R&D">Anti Fungi R&D</option>
-                                        <option value="Anti Viral R&D">Anti Viral R&D</option>
-                                        <option value="Anti Cancer R&D">Anti Cancer R&D</option>
-                                        <option value="Anti Bacteria R&D">Anti Bacteria R&D</option>
-                                        <option value="Anti Malaria R&D">Anti Malaria R&D</option>
+                                        <option value="Anti Viral R&D">Anti-Viral R&D</option>
+                                        <option value="Anti Cancer R&D">Anti-Cancer R&D</option>
+                                        <option value="Anti Bacteria R&D">Anti-Malaria R&D</option>
                                     </select>
                                 </div>
                             </div>
